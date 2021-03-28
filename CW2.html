@@ -16,6 +16,22 @@
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit-icons.min.js"></script>
 
+<style>
+  .product{
+      border: 1px grey solid;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+  }
+  </style>
+
+
+  <script>
+      if('serviceWorker' in navigator){
+          navigator.serviceWorker.register('service-worker.js');
+      };
+      </script>
+
 </head>
 <body class="container-fluid">
   <div id="app">
