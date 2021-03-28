@@ -17,7 +17,7 @@ var cacheFiles = [
 
 ];
 
-self.addEventListener('install' (e) => {
+self.addEventListener('install', (e) => {
     console.log('[Service Worker] install');
     e.waitUntil(
         caches.open(cacheName).then((cache) => {
