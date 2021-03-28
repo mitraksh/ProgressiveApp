@@ -41,11 +41,11 @@
             <div v-if='showProduct'> 
                 <div class="product" v-for="product in sortProducts">
     
-            <h2 v-text="product.title"></h2>
+            <h2 v-text="product.subject"></h2>
             <figure>
                 <img v-bind:src="product.image" width="200" height="400">
             </figure>
-            <p v-html="product.description"></p>
+            <p v-html="product.location"></p>
             <p>Price: {{product.price}}</p>
             <p>Units Available = {{product.availableInventory}}</p>
             <button v-on:click='addToCart(product)' v-if='canAddToCart(product)'>Add to cart</button>
