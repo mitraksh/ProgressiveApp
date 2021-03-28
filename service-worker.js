@@ -21,8 +21,8 @@ self.addEventListener('install', (e) => {
     console.log('[Service Worker] install');
     e.waitUntil(
         caches.open(cacheName).then((cache) => {
-            console.log('[Service Worker] caching all files ...');
-            return cache.addAll(cacheFiles);
+        console.log('[Service Worker] caching all files ...');
+        return cache.addAll(cacheFiles);
         })
     );
 });
