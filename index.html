@@ -101,41 +101,31 @@
 
               <div v-for="product in sortedProducts">
                   
-
-
-                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid id="product">
-                  <div class="uk-card-media-left uk-cover-container">
-                      <img v-bind:src="product.image" alt="" uk-cover>
-                      <canvas width="600" height="400"></canvas>
-                  </div>
+                <h2 v-text="product.subject"></h2>
+            <figure>
+                <img v-bind:src="product.image" width="200" height="400">
+            </figure>
+            <p v-html="product.location"></p>
+            <p>Price: {{product.price}}</p>
+            <p>Units Available = {{product.availableInventory}}</p>
+            <button v-on:click='addToCart(product)' v-if='canAddToCart(product)'>Add to cart</button>
+            <button disabled="disabled" v-else>Add to cart</button>
+                  <!-- Space availability message -->
+                  <span v-if='product.availableInventory === cartCount(product.id)'>Sold Out!!</span>
+                  <span v-else-if="product.availableInventory - cartCount(product.id) < 5" >
+                    only {{ product.availableInventory - cartCount(product.id) }} Left!!
+                  </span>
+                  <span v-else>Buy Now!</span>
+                  
                   <div>
-                      <div class="uk-card-body">
-                        <h3 class="uk-card-title" v-text="product.subject"></h3>
-                        <p class="card-text">Location: {{product.location}}</p>
-                        <p class="card-text">Price: £{{product.price}}</p>
-                        <p class="card-text">Available Seats: {{product.availableInventory - cartCount(product)}}</p>
-
-                        <button v-on:click='addToCart(product)' v-if='canAddToCart(product)' class="btn btn-primary">Add to cart</button>
-
-                        <button disabled="disabled" v-else class="btn btn-disabled">Add to cart</button>
-              
-                        <span v-if='product.availableInventory === cartCount(product)'>All out!</span>
-                        <span v-else-if="product.availableInventory - cartCount(product) < 5">
-                                    Only {{product.availableInventory - cartCount(product)}} left!
-                        </span>
-                        <span v-else>Buy now!</span>
-                        <div>
-                          <span v-for='n in product.rating'>★</span>
-                          <span v-for='n in 5-product.rating'>☆</span>
-                          </div>
+                      <span v-for='n in product.rating'>★</span>
+                      <span v-for='n in 5-product.rating'>☆</span>
+                    </div>
 
        
                           </div>
                     </div>
                 </div>
-
-                  
-
               </div>
           </div>
           
