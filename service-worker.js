@@ -36,8 +36,6 @@ self.addEventListener('fetch', function (e){
                     return response;
                 })
             })
-            console.log('Service worker...Fetching resources' +e.request.url);
-            return r
         } ))
     )
 })
